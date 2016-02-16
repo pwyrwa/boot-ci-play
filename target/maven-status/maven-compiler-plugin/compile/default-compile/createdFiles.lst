@@ -1,0 +1,14 @@
+org/pio/config/MapperConfig.class
+org/pio/error/RequiredServiceNotReachebleException.class
+org/pio/error/ErrorResponse$ERROR_TYPE.class
+org/pio/ServletInitializer.class
+org/pio/mixin/UserMixin_v3.class
+org/pio/service/UserRepository.class
+org/pio/mixin/UserMixin_v4.class
+org/pio/error/ErrorResponse.class
+org/pio/error/ErrorHandler.class
+org/pio/model/User.class
+org/pio/PioJacksonApplication.class
+org/pio/service/LocalUserRepository.class
+org/pio/error/RequiredServiceNotReachebleException$MODULE.class
+org/pio/web/UserController.class

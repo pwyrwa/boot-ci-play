@@ -1,0 +1,8 @@
+org/pio/PioJacksonApplicationTests.class
+org/pio/web/UserControllerUnreachableRepositoryErrorIT.class
+org/pio/web/UserControllerBasicIT.class
+org/pio/web/UserControllerUnreachableRepositoryErrorIT$OverrideRepository.class
+org/pio/testconfig/TestConfiguration.class
+org/pio/web/UserControllerRequestSpecIT.class
+org/pio/testconfig/RestAssuredSetup.class
+org/pio/config/MapperConfigTest.class
