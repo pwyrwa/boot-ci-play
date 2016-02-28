@@ -36,18 +36,18 @@ public class MapperConfig {
         return mapper;
     }
 
-    @Bean(name="v4Mapper")
-    public ObjectMapper v4Mapper() {
-        LOG.info("Creating mapper");
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE);
-        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.NONE);
-
-        mapper.addMixIn(User.class, UserMixin_v4.class);
-        return mapper;
-    }
+//    @Bean(name="v4Mapper")
+//    public ObjectMapper v4Mapper() {
+//        LOG.info("Creating mapper");
+//
+//        ObjectMapper mapper = new ObjectMapper();
+//
+//        mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE);
+//        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.NONE);
+//
+//        mapper.addMixIn(User.class, UserMixin_v4.class);
+//        return mapper;
+//    }
 
 
     @Bean

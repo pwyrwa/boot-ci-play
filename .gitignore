@@ -1,0 +1,21 @@
+.project
+.settings
+.classpath
+*/target/*
+/target/*
+/Reports*
+*.log
+*.bak
+.DS_Store
+git-completion.bash
+
+# Intellij IDEA project files
+.idea
+*.iml
+
+*/Reports/*
+/target
+/classes
+
+# NetBeans project files
+nbactions*.xml
