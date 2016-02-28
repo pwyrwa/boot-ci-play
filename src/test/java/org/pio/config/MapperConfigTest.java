@@ -25,9 +25,9 @@ public class MapperConfigTest {
     @Qualifier("v3Mapper")
     ObjectMapper mapperV3;
 
-    @Autowired
-    @Qualifier("v4Mapper")
-    ObjectMapper mapperV4;
+//    @Autowired
+//    @Qualifier("v4Mapper")
+//    ObjectMapper mapperV4;
 
     @Test
     public void overrideDefaults() throws JsonProcessingException {
@@ -38,8 +38,8 @@ public class MapperConfigTest {
         FilterProvider filters = new SimpleFilterProvider().addFilter("filter properties by name", SimpleBeanPropertyFilter
                 .serializeAllExcept("firstName"));
 
-        jsonUser = mapperV4.writer(filters).writeValueAsString(new User("pedro", "Piotr", "W"));
-        System.out.println("jsonUser V4 = " + jsonUser);
+//        jsonUser = mapperV4.writer(filters).writeValueAsString(new User("pedro", "Piotr", "W"));
+//        System.out.println("jsonUser V4 = " + jsonUser);
 
 
 //        assertThat(jsonUser)

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.google.common.annotations.VisibleForTesting;
 
 /**
  * <Add description here>
@@ -19,13 +18,13 @@ import com.google.common.annotations.VisibleForTesting;
 public class ErrorHandler {
     private static Logger LOG = LoggerFactory.getLogger(ErrorHandler.class);
 
-    @ExceptionHandler({ RequiredServiceNotReachebleException.class })
-    @VisibleForTesting
+
     @ResponseBody
+    @ExceptionHandler({ RequiredServiceNotReachebleException.class })
     public ResponseEntity<ErrorResponse> handleServiceNotAvailable
             (RequiredServiceNotReachebleException serviceNotAvailableException) {
 
-        LOG.info("Handling serviceNotAvailableException {}", serviceNotAvailableException);
+        LOG.info("Handling serviceNotAvailableException {}", serviceNotAvailableException.getMessage());
         return new ResponseEntity<>(
                 new ErrorResponse(ErrorResponse.ERROR_TYPE.SERVICE_UNAVAILABLE,
                         serviceNotAvailableException.getModule().toString(), serviceNotAvailableException.getMessage()),

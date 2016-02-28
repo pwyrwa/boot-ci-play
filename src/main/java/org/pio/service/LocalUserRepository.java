@@ -21,10 +21,13 @@ public class LocalUserRepository implements UserRepository {
     // User which will always be in repository
     public static final String CONSTANT_USER = "pio";
 
-    private Map<String, User> userRepository = Maps.newHashMap();
+    private Map<String, User> userRepository = Maps.newLinkedHashMap();
 
     public LocalUserRepository() {
         userRepository.put(CONSTANT_USER, new User(CONSTANT_USER, "Piotr", "W"));
+        userRepository.put("aidan184", new User("aidan184", "Aidan", "W"));
+        userRepository.put("vivi", new User("vivi", "Vivienne", "W"));
+        userRepository.put("barbie", new User("barbie", "Barbie", "C"));
     }
 
     @Override

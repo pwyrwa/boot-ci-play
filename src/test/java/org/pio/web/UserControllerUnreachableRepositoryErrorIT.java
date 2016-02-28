@@ -44,8 +44,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 public class UserControllerUnreachableRepositoryErrorIT {
 
     static final String USER_REPOSITORY_NOT_REACHABLE = "User repository not reachable";
-    @Autowired
-    RestAssuredSetup restAssuredSetup;
 
     @Configuration
     static class OverrideRepository {
@@ -71,19 +69,19 @@ public class UserControllerUnreachableRepositoryErrorIT {
 
     @Before
     public void setUp() throws Exception {
-        restAssuredSetup.withPort(port);
+        RestAssuredSetup.withPort(port);
 
     }
 
     @Test
     public void getUser_unreachable_repository() {
         given()
-                .spec(restAssuredSetup.getRequestSpecification())
+                .spec(RestAssuredSetup.defaultRequestSpec())
                 .pathParam("userName", LocalUserRepository.CONSTANT_USER)
             .when()
                 .get("/user/{userName}")
             .then()
-                .spec(restAssuredSetup.getResponseSpecification())
+                .spec(RestAssuredSetup.defaultResponseSpecification())
                 .statusCode(HttpStatus.SERVICE_UNAVAILABLE.value())
                 .log().all()
                 .body("errorType", equalTo("SERVICE_UNAVAILABLE"))

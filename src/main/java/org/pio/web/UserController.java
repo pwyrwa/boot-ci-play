@@ -10,6 +10,7 @@ import org.pio.service.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +32,10 @@ public class UserController {
     private final UserRepository userRepository;
 
     @Autowired
-    public UserController(UserRepository userRepository) {
+    public UserController(UserRepository userRepository, @Value("${foo}") String foo) {
+
         this.userRepository = userRepository;
+        LOG.info("Foo property {}, it better be bar", foo);
     }
 
     @RequestMapping("/user/{userName}")

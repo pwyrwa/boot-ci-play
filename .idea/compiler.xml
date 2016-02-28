@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="boot-demo" />
+        <module name="boot-sample" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="boot-demo" target="1.8" />
+      <module name="boot-sample" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

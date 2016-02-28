@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
 import org.pio.PioJacksonApplication;
 import org.pio.service.LocalUserRepository;
 import org.pio.testconfig.RestAssuredSetup;
-import org.pio.testconfig.TestConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.IntegrationTest;
@@ -39,26 +38,24 @@ import com.jayway.restassured.specification.ResponseSpecification;
 public class UserControllerRequestSpecIT {
 
 
-    @Autowired
-    RestAssuredSetup restAssuredSetup;
 
     @Value("${local.server.port}")
     int port;
 
     @Before
     public void setUp() throws Exception {
-        restAssuredSetup.withPort(port);
+        RestAssuredSetup.withPort(port);
     }
 
     @Test
     public void getUser_ok() {
         given()
-                .spec(restAssuredSetup.getRequestSpecification())
+                .spec(RestAssuredSetup.defaultRequestSpec())
                 .pathParam("userName", LocalUserRepository.CONSTANT_USER)
             .when()
                 .get("/user/{userName}")
             .then()
-                .spec(restAssuredSetup.getResponseSpecification())
+                .spec(RestAssuredSetup.defaultResponseSpecification())
                 .statusCode(HttpStatus.OK.value())
                 .body("userName", equalTo("pio"))
                 .body("firstName", equalTo("Piotr"))
@@ -68,11 +65,11 @@ public class UserControllerRequestSpecIT {
     @Test
     public void getUser_notfound_404() {
         given()
-                .spec(restAssuredSetup.getRequestSpecification())
+                .spec(RestAssuredSetup.defaultRequestSpec())
                 .pathParam("userName", "bad")
             .when()
                 .get("/user/{userName}")
             .then()
-                .statusCode(HttpStatus.NOT_FOUND.value());
+                .spec(RestAssuredSetup.notFoundResponseSpec());
     }
 }
